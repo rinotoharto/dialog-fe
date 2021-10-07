@@ -241,9 +241,11 @@ body {
   display: flex;
   height: 100%;
   flex-direction: column;
-  justify-content: flex-end;
-  margin-left: 20px;
-  margin-right: 20px;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
   padding-bottom: 20px;
 }
 
@@ -685,7 +687,11 @@ body {
 .user-list__container {
   display: flex;
   flex-direction: column;
-  height: 100%;
+}
+
+.user-list__item {
+  height: 160px;
+  overflow-y: scroll;
 }
 
 .user-list__header {
@@ -929,7 +935,6 @@ body {
 }
 
 .team-channel-header__right {
-  flex: 0.55;
   display: flex;
   align-items: center;
   justify-content: flex-end;
@@ -1028,7 +1033,18 @@ body {
   text-overflow: ellipsis;
   word-break: break-all;
 }
-
+.channel-preview__item-unread {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f7f7f7;
+  color: #005fff;
+  border-radius: 50%;
+  width: 18px;
+  font-size: 12px;
+  height: 18px;
+  margin-left: 1rem;
+}
 .channel-preview__item.multi {
   max-width: 220px;
 }
@@ -1728,7 +1744,8 @@ div.rta__autocomplete.str-chat__emojisearch {
 }
 
 .channel-list__container-toggle {
-  display: none;
+  display: flex;
+  align-items: center;
   height: 50px;
   width: 50px;
   background: #005fff;
@@ -1737,6 +1754,13 @@ div.rta__autocomplete.str-chat__emojisearch {
   top: 50%;
   border-radius: 50%;
   z-index: 2;
+  padding-right: 2px;
+}
+
+.channel-list__container-toggle-icon {
+  height: 25px;
+  width: 25px;
+  margin-left: 56%;
 }
 
 .channel-list__container-responsive {
@@ -1835,6 +1859,10 @@ div.rta__autocomplete.str-chat__emojisearch {
 
   .channel-list__container-toggle {
     right: -5%;
+  }
+  .user-list__item {
+    height: 150px;
+    overflow-y: scroll;
   }
 }
 

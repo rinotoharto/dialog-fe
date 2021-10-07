@@ -85,7 +85,10 @@ const TeamChannelHeader = ({ setIsEditing }) => {
       <div className='team-channel-header__container'>
         <MessagingHeader />
         <div className='team-channel-header__right'>
-          <p className='team-channel-header__right-text'>{getWatcherText(watcher_count)}</p>
+          {channel.type === 'team'
+          ? <p className='team-channel-header__right-text'>{Object.keys(channel?.state?.members).length} Member</p>
+          : <p className='team-channel-header__right-text'>{getWatcherText(watcher_count)}</p>
+          }
         </div>
       </div>
     );

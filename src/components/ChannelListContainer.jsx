@@ -5,6 +5,8 @@ import Cookies from 'universal-cookie';
 import { ChannelSearch, TeamChannelList, TeamChannelPreview } from './';
 import HospitalIcon from '../assets/hospital.png';
 import LogoutIcon from '../assets/logout.png';
+import nextIcon from '../assets/next.png';
+
 
 const cookies = new Cookies();
 
@@ -129,6 +131,7 @@ const ChannelListContainer = ({ setCreateType, setIsCreating, setIsEditing }) =>
         style={{ left: toggleContainer ? '0%' : '-89%', backgroundColor: '#005fff' }}
       >
         <div className="channel-list__container-toggle" onClick={() => setToggleContainer((prevToggleContainer) => !prevToggleContainer)}>
+          <img alt="next" src={nextIcon} className="channel-list__container-toggle-icon" />
         </div>
         <ChannelListContent
           setIsCreating={setIsCreating}

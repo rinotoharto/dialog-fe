@@ -41,7 +41,6 @@ const CreateChannel = ({ createType, setIsCreating }) => {
   const [selectedUsers, setSelectedUsers] = useState([client.userID || '']);
   const [channelCategory, setChannelCategory] = useState('private');
   const [channelName, setChannelName] = useState('');
-  console.log(selectedUsers, '<< selectedUsers')
 
   const createChannel = async (event) => {
     event.preventDefault();

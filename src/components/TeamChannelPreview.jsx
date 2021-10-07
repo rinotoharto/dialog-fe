@@ -1,14 +1,17 @@
 import React from 'react';
 import { Avatar, useChatContext } from 'stream-chat-react';
 
+
 const TeamChannelPreview = ({ setActiveChannel, channel, type, setToggleContainer, setIsCreating, setIsEditing }) => {
   const { channel: activeChannel, client } = useChatContext();
-
-  const ChannelPreview = () => (
-    <p className="channel-preview__item">
-      # {channel?.data?.name || channel?.data?.id}
-    </p>
-  );
+  const ChannelPreview = () => {
+    return (
+      <p className="channel-preview__item">
+        # {channel?.data?.name || channel?.data?.id}
+        {channel.countUnread() > 0 && <p className="channel-preview__item-unread">{channel.countUnread()}</p>}
+      </p>
+    )
+  };
 
   const DirectPreview = () => {
     const members = Object.values(channel.state.members).filter(({ user }) => user.id !== client.userID); 
@@ -20,6 +23,7 @@ const TeamChannelPreview = ({ setActiveChannel, channel, type, setToggleContaine
           size={24}
         />
         <p>{members[0]?.user?.fullName || members[0]?.user?.name || members[0]?.user?.id}</p>
+        {channel.countUnread() > 0 && <p className="channel-preview__item-unread">{channel.countUnread()}</p>}
       </div>
     )
   };

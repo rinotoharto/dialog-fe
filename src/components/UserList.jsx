@@ -10,7 +10,9 @@ const ListContainer = ({ children }) => {
                 <p>User</p>
                 <p>Invite</p>
             </div>
-            {children}
+            <div className="user-list__item">
+                {children}
+            </div>
         </div>
     )
 }
@@ -47,8 +49,6 @@ const UserList = ({ setSelectedUsers, channelCategory }) => {
     const [listEmpty, setListEmpty] = useState(false);
     const [error, setError] = useState(false);
 
-    console.log(channelCategory, '<< category')
-
     useEffect(() => {
         const getUsers = async () => {
             if(loading) return;
@@ -83,7 +83,7 @@ const UserList = ({ setSelectedUsers, channelCategory }) => {
                 usersId.push(user.id);
             });
             setSelectedUsers((prevUsers) => prevUsers.concat(usersId));
-        } 
+        }
     }, [channelCategory]);
 
     if(error) {
